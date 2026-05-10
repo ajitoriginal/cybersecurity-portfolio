@@ -94,7 +94,13 @@ The project uses a virtualized environment consisting primarily of:
 ```
 
 Lab Environment
+
+hh
+
 CentOS Stream 9
+
+
+
 Kali Linux
 Oracle VirtualBox
 OpenSSH
@@ -106,6 +112,7 @@ Bash
 ```text
 sample/
 ```
+
 ```bash
 ye code hai
 ```
