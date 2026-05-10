@@ -118,3 +118,7 @@ sample/
 ```bash
 ye code hai
 ```
+PDF
+## 📄 Project Report
+
+[View the complete project report (PDF)](/temporary/Securing%20Linux%20Servers%20Using%20Honeypots%20and%20IP%20Blocking.pdf)
