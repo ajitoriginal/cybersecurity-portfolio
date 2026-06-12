@@ -2,16 +2,16 @@ The project used the
 
 `rockyou.txt`
 
- wordlist dThe project used the `rockyou.txt` wordlist during the lab.uring the lab.
+> **Note:** The project used the `rockyou.txt` wordlist during the lab.
 
 # Linux Server Hardening, SSH Attack Monitoring & Automated IP Blocking
 
 > A defensive cybersecurity lab focused on detecting SSH brute-force activity, monitoring authentication failures, hardening SSH, analyzing attack data, and automatically blocking suspicious IP addresses.
 
-![Linux Security](<https://img.shields.io/badge/Focus-Linux%20Security-red>)
+![Linux Security](https://img.shields.io/badge/Focus-Linux%20Security-red)
 ![SSH](https://img.shields.io/badge/Protocol-SSH-blue)
 ![Bash](https://img.shields.io/badge/Scripting-Bash-green)
-![CentOS](<https://img.shields.io/badge/OS-CentOS%20Stream%209-purple>)
+![CentOS](https://img.shields.io/badge/OS-CentOS%20Stream%209-purple)
 ![VirtualBox](https://img.shields.io/badge/Lab-VirtualBox-orange)
 
 ---
@@ -94,31 +94,15 @@ The project uses a virtualized environment consisting primarily of:
 ```
 
 Lab Environment
-
-hh
-
 CentOS Stream 9
-
-
-
 Kali Linux
-
-
 Oracle VirtualBox
 OpenSSH
 SELinux
 Bash
-![Lab Environment](./screenshots/01-virtualbox.png)
-![Lab Environment](./screenshots/02-centos.png)
+<!-- ![Lab Environment](./screenshots/01-virtualbox.png) -->
+<!-- ![Lab Environment](./screenshots/02-centos.png) -->
 
-```text
-sample/
-```
-
-```bash
-ye code hai
-```
-PDF
 ## 📄 Project Report
 
-[View the complete project report (PDF)](/temporary/Securing%20Linux%20Servers%20Using%20Honeypots%20and%20IP%20Blocking.pdf)
+[View the complete project report (PDF)](./project-report/Securing%20Linux%20Servers%20Using%20Honeypots%20and%20IP%20Blocking.pdf)
