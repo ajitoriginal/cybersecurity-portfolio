@@ -452,4 +452,5 @@ The lab therefore provides hands-on exposure to both **SOC operations** and the 
 
 The complete course-end project report containing the detailed implementation steps, screenshots, configuration procedures, analysis, and final results is available here:
 
-**[View Complete Project Report (PDF)](./project-report/AI-Augmented%20SOC%20Implementation%20for%20Enterprise%20Threat%20Detection%20and%20Response.pdf)**
+[View the complete project report (PDF)](./project-report/AI-Augmented%20SOC%20Implementation%20for%20Enterprise%20Threat%20Detection%20and%20Response.pdf)
+
