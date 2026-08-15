@@ -15,11 +15,8 @@
 ## 📌 Project Overview
 
 This project demonstrates a controlled Vulnerability Assessment and Penetration Testing (VAPT) exercise against a deliberately vulnerable simulated web application.
-
 The assessment was performed in an isolated virtual lab using Kali Linux and a vulnerable virtual machine. The objective was to perform reconnaissance, identify exposed services and application weaknesses, validate vulnerabilities through controlled exploitation, and document security findings with remediation recommendations.
-
 The target application was a simulated **Travel Blog** web application hosted on the vulnerable virtual machine.
-
 The project covered both infrastructure-level enumeration and web application security testing.
 
 ---
@@ -86,7 +83,7 @@ Lab Environment
 | Burp Suite        | HTTP request interception and analysis |
 | FTP Client / wget | FTP enumeration and file retrieval     |
 
-🔎 Assessment Methodology
+## 🔎 Assessment Methodology
 
 The assessment followed a structured penetration-testing workflow:
 
@@ -112,7 +109,7 @@ Risk Analysis
 Remediation Recommendations
 ```
 
-**1. Lab Deployment**
+### 1. Lab Deployment
 
 The vulnerable virtual machine was imported into Oracle VirtualBox and connected to the dedicated NAT network.
 
@@ -120,7 +117,7 @@ The target machine hosted the simulated web application and other network servic
 
 The target environment was assigned an internal lab IP address.
 
-**2. Reconnaissance & Service Enumeration**
+### 2. Reconnaissance & Service Enumeration
 
 Nmap was used to perform reconnaissance against the target system.
 
@@ -137,7 +134,7 @@ The scan was used to identify:
 
 The scan revealed multiple accessible services, which were subsequently investigated during the vulnerability assessment.
 
-3. FTP Security Assessment
+### 3. FTP Security Assessment
 
 The FTP service was tested to determine whether anonymous authentication was permitted.
 
@@ -159,13 +156,13 @@ wget -m --nopassive ftp://anonymous:anonymous@<TARGET-IP>
 
 A sensitive test file was successfully retrieved from the FTP service.
 
-Finding
+**Finding**
 
 Anonymous FTP Access Enabled
 
 Risk: Sensitive files could potentially be accessed by unauthorized users.
 
-Recommendation
+**Recommendation**
 
 * Disable anonymous FTP access.
 * Require authenticated access.
@@ -173,7 +170,7 @@ Recommendation
 * Prefer secure alternatives such as SFTP where appropriate.
 * Review exposed files and remove sensitive information from publicly accessible locations.
 
-4. Web Application Assessment
+### 4. Web Application Assessment
 
 The HTTP service was accessed to identify the hosted web application.
 
@@ -181,7 +178,7 @@ The target hosted a simulated Travel Blog website.
 
 The application was manually browsed to identify accessible functionality and potential attack surfaces.
 
-5. Web Directory Enumeration
+### 5. Web Directory Enumeration
 
 Gobuster was used to discover directories and resources that were not immediately visible through normal application navigation.
 
@@ -196,42 +193,38 @@ The enumeration identified additional application paths and resources.
 
 This demonstrated the importance of restricting access to sensitive directories and files that are not intended to be publicly accessible.
 
-6. Sensitive Information Exposure
-   6.1 `robots.txt`
+### 6. Sensitive Information Exposure
 
-The assessment identified an accessible `robots.txt` file containing information that should not have been exposed to unauthenticated users.
+      **6.1 `robots.txt`**
 
-This demonstrated that publicly accessible files can disclose information about application resources.
+      The assessment identified an accessible `robots.txt` file containing information that should not have been exposed to unauthenticated users.
 
-### Recommendation
+      This demonstrated that publicly accessible files can disclose information about application resources.
 
-* Avoid placing sensitive information in `robots.txt`.
-* Treat `robots.txt` as a discovery aid rather than an access-control mechanism.
-* Enforce server-side authorization for sensitive resources.
+      **Recommendation**
 
-### 6.2 Exposed Configuration / Information Resource
+      * Avoid placing sensitive information in `robots.txt`.
+      * Treat `robots.txt` as a discovery aid rather than an access-control mechanism.
+      * Enforce server-side authorization for sensitive resources.
 
-An additional application path was discovered during enumeration:
+      **6.2 Exposed Configuration / Information Resource**
 
-```
-/c0nf1g/
-```
+      An additional application path was discovered during enumeration:
 
-The resource exposed sensitive technical information through the web application.
+      ``      /c0nf1g/      ``
 
-The assessment demonstrated how improperly exposed configuration or diagnostic resources can provide useful information to attackers.
+      The resource exposed sensitive technical information through the web application.
 
-### Recommendation
+      The assessment demonstrated how improperly exposed configuration or diagnostic resources can provide useful information to attackers.
 
-* Remove unnecessary diagnostic/configuration resources from production.
-* Restrict access to administrative and technical information.
-* Disable unnecessary information disclosure.
-* Apply appropriate authentication and authorization controls.
+      **Recommendation**
 
+      * Remove unnecessary diagnostic/configuration resources from production.
+      * Restrict access to administrative and technical information.
+      * Disable unnecessary information disclosure.
+      * Apply appropriate authentication and authorization controls.
 
-
-
-7. Source Code Information Disclosure
+### 7. Source Code Information Disclosure
 
 The HTML source code of publicly accessible pages was inspected using the browser's source-view functionality.
 
@@ -239,28 +232,24 @@ Sensitive information was discovered directly within the page source.
 
 This demonstrates that information hidden from the normal visual interface is not actually protected if it is delivered to the client.
 
-Security Impact
+***Security Impact***
 
 Attackers can inspect client-side source code to discover:
 
-Hidden application information
-Internal paths
-Development artifacts
-Embedded secrets or tokens
-Application implementation details
+- Hidden application information
+- Internal paths
+- Development artifacts
+- Embedded secrets or tokens
+- Application implementation details
 
-
-
-### Recommendation
+**Recommendation**
 
 * Never store secrets or sensitive information in client-side HTML/JavaScript.
 * Remove debugging information from production applications.
 * Perform proper server-side authorization.
 * Review client-side assets during security testing.
 
-
-
-8. Administrative Panel Assessment
+### 8. Administrative Panel Assessment
 
 A dedicated administrative endpoint was identified:
 
@@ -268,14 +257,13 @@ A dedicated administrative endpoint was identified:
 /4dm1n/
 ```
 
-
 The page exposed an administrative login interface.
 
 Further inspection of the application's source code revealed sensitive information associated with the administrative functionality.
 
 This demonstrated weaknesses in the application's access-control and information-disclosure controls.
 
-### Recommendation
+**Recommendation**
 
 * Protect administrative endpoints with strong authentication.
 * Implement authorization checks server-side.
@@ -283,13 +271,11 @@ This demonstrated weaknesses in the application's access-control and information
 * Restrict administrative interfaces by network or identity where appropriate.
 * Avoid exposing sensitive implementation details through client-side resources.
 
-
-9. HTTP Request Interception with Burp Suite
+### 9. HTTP Request Interception with Burp Suite
 
 Burp Suite was configured to intercept traffic generated by the administrative section of the application.
 
 The intercepted HTTP request was inspected before being forwarded to the application.
-
 
 ```
 Browser
@@ -300,8 +286,6 @@ HTTP Request Inspection
    ↓
 Target Web Application
 ```
-
-
 
 This demonstrated how an attacker can inspect and manipulate client-server communication during a web application security assessment.
 
@@ -316,7 +300,7 @@ Burp Suite can be used to identify:
 * Session-management weaknesses
 * Application logic issues
 
-# 🔎 Key Findings
+## 🔎 Key Findings
 
 The assessment identified several security weaknesses in the simulated application environment.
 
@@ -330,8 +314,7 @@ The assessment identified several security weaknesses in the simulated applicati
 | Publicly discoverable directories                           | Security Misconfiguration | Increased attack surface            |
 | Sensitive information exposed through client-side resources | Information Disclosure    | Information leakage                 |
 
-# 🛠️ Remediation Recommendations
-
+## 🛠️ Remediation Recommendations
 
 ### FTP Security
 
@@ -361,14 +344,11 @@ The assessment identified several security weaknesses in the simulated applicati
 * Conduct regular vulnerability assessments.
 * Keep server software and application components updated.
 
-
-# 📄 Project Report
+## 📄 Project Report
 
 The complete course-end project report containing the detailed lab procedure, screenshots, testing steps, findings, and recommendations is available here:
 
-**[View Complete Project Report (PDF)](./project-report/Conducting%20Vulnerability%20Assessment%20and%20Penetration%20Testing%20on%20a%20Simulated%20Web%20Application%20Environment.pdf)**
-
-
+**[View Complete Project Report (PDF)](<./project-report/Conducting%20Vulnerability%20Assessment%20and%20Penetration%20Testing%20on%20a%20Simulated%20Web%20Application%20Environment.pdf>)**
 
 # 📚 Skills Demonstrated
 
