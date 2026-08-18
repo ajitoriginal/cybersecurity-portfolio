@@ -1,7 +1,3 @@
-The lab therefore provides hands-on exposure to both **SOC operations** and the broader  **security-engineering lifecycle** .
-
-This provides a structured way to prioritize defensive improvements.
-
 # AI-Augmented SOC Implementation for Enterprise Threat Detection & Response
 
 > A hands-on cybersecurity lab demonstrating the design and implementation of a mini Security Operations Center (SOC) using SIEM, network monitoring, AI-assisted log analysis, SOAR automation, threat hunting, and security-control mapping.
@@ -129,7 +125,7 @@ The project follows a simplified SOC architecture:
 | Docker / Docker Compose    | Shuffle deployment                                  |
 | MITRE ATT&CK / D3FEND      | Threat and defensive-control mapping                |
 
-## 1. Centralized Log Collection with Splunk
+### 1. Centralized Log Collection with Splunk
 
    The first phase focused on building the SOC's centralized logging capability.
 
@@ -148,7 +144,7 @@ The project follows a simplified SOC architecture:
 
 The forwarded data was then made available for investigation through Splunk Search & Reporting.
 
-## 🔎 Authentication Event Detection
+**🔎 Authentication Event Detection**
 
 Splunk was used to search authentication events and identify failed login attempts.
 
@@ -176,7 +172,7 @@ Detection
 Security Investigation
 ```
 
-## 2.Network Security Monitoring with Zeek
+### 2. Network Security Monitoring with Zeek
 
 The second phase introduced Zeek as a network security monitoring component.
 
@@ -192,7 +188,7 @@ Zeek provides network telemetry that can be used to investigate:
 
 This adds network visibility alongside host-based log monitoring.
 
-## 3. AI-Assisted Log Analysis
+### 3. AI-Assisted Log Analysis
 
 The project incorporated Salesforce LogAI to demonstrate AI-assisted security log analysis.
 
@@ -221,7 +217,7 @@ Security Investigation
 
 The purpose of the AI component is to augment traditional SOC analysis rather than replace analyst investigation.
 
-## 4. Threat Hunting & IOC Investigation
+### 4. Threat Hunting & IOC Investigation
 
 The project included a threat-hunting phase focused on investigating Indicators of Compromise (IOCs).
 
@@ -254,7 +250,7 @@ Response / Mitigation
 
 This demonstrates the relationship between SIEM data, network telemetry, AI-assisted analysis, and security investigation.
 
-## 5. SOAR Implementation with Shuffle
+### 5. SOAR Implementation with Shuffle
 
 The fourth phase introduced Shuffle as the Security Orchestration, Automation and Response (SOAR) component.
 
@@ -276,7 +272,7 @@ SOAR can help reduce repetitive manual work by integrating security tools and au
 
 The project used Shuffle to demonstrate the integration of security operations with an orchestration layer.
 
-## 6. Security Control Mapping
+### 6. Security Control Mapping
 
 The project also included security-control mapping using D3FEND-related data.
 
@@ -303,7 +299,7 @@ Splunk lookup tables were used to correlate:
 * D3FEND techniques
 * Defensive categories
 
-## 7. Security Gap Analysis
+### 7. Security Gap Analysis
 
 The project identified defensive techniques that were not adequately covered by the available security controls.
 
@@ -323,7 +319,7 @@ Control Missing
 
 This provides a structured way to prioritize defensive improvements.
 
-# 8. Security Coverage Calculation
+### 8. Security Coverage Calculation
 
 The project also calculated the percentage of defensive techniques covered by the available controls.
 
@@ -341,7 +337,7 @@ Total Defensive Techniques
        Coverage %
 ```
 
-# 🔐 Security Operations Workflow
+## 🔐 Security Operations Workflow
 
 The complete project workflow can be summarized as:
 
@@ -380,7 +376,7 @@ The complete project workflow can be summarized as:
              └─────────────────┘
 ```
 
-# 📊 Key Capabilities Demonstrated
+## 📊 Key Capabilities Demonstrated
 
 
 
@@ -407,7 +403,7 @@ This project demonstrates practical exposure to:
 * Windows Server security monitoring
 * Docker-based security tooling
 
-# 🛠️ Tools & Technologies
+## 🛠️ Tools & Technologies
 
 | Category               | Technologies                                       |
 | ---------------------- | -------------------------------------------------- |
@@ -423,7 +419,7 @@ This project demonstrates practical exposure to:
 | Scripting / Automation | Bash, Python                                       |
 | Security Analysis      | IOC investigation, log correlation, threat hunting |
 
-# 🔎 Key Takeaways
+## 🔎 Key Takeaways
 
 
 
@@ -447,7 +443,7 @@ Defensive Control Analysis
 
 The lab therefore provides hands-on exposure to both **SOC operations** and the broader  **security-engineering lifecycle** .
 
-# 📄 Project Report
+## 📄 Project Report
 
 
 The complete course-end project report containing the detailed implementation steps, screenshots, configuration procedures, analysis, and final results is available here:
