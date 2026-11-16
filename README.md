@@ -1,4 +1,3 @@
-
 # Cybersecurity Portfolio
 
 A collection of hands-on cybersecurity projects, labs, writeups, security scripts, and practical security engineering work.
